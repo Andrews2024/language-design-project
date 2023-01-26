@@ -1,0 +1,19 @@
+//This is a single-line comment
+func int my_function() {
+    print("This function returns an integer and has no arguments.") //These comments can be in the same line as code
+    return 0
+}
+
+func void argument_function(int number) {
+    number++
+    print(number)
+    print("This function doesn't return anything, but it requires an integer input")
+    return
+}
+/*This is a multi-line comment
+Anything in the comment is not read by the parser or executed
+Here you can write a lot of stuff about your code*/
+func dec addition(dec x, dex y, dec z) {
+    float sum = x + y + z
+    return sum
+}
