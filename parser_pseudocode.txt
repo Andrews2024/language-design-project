@@ -1,0 +1,14 @@
+Sources:
+https://lisperator.net/pltut/
+
+Main:
+Character input stream
+	See next char without moving forward in stream
+	Move forward in stream
+	Detect end of stream
+	Error handling
+Token input stream
+//Token is an object with type and value
+// { type: "operator", value: "!=" }
+	Ignore whitespace
+	Ignore comments
