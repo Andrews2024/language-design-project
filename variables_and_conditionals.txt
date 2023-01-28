@@ -1,0 +1,26 @@
+//Accepted types: integer, double, string, boolean
+int myInteger = 9
+dec myDouble = 9.87 //doubles are referred to as decimals and have 'dec' keyword
+str myString = "hi there"
+boolean isBoolean = true
+
+if(isBoolean) {
+    print(myString)
+}
+else if (myInteger < myDouble) {
+    print("hello world")
+}
+else {
+    print(myInteger + myDouble)
+}
+
+if (isBoolean AND (myInteger > myDouble)) {
+    print("You can also type AND as &&)
+}
+else if (isBoolean || !isBoolean) {
+    print("OR is the same as ||")
+}
+else {
+    print("NOT == !=, and ! takes the opposite of the boolean value")
+    print("== means equal to. Don't use = for conditionals!")
+}
