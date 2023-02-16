@@ -9,7 +9,7 @@ template <typename Iterator>
 bool arrayOfIntegersParser(Iterator, Iterator);
 
 int main(void) {
-    cout << "Enter and array of integers, such as [1, 2, 3]" << endl;
+    cout << "Enter an array of integers, such as [1, 3, 5]" << endl;
     cout << "Type q or Q to quit" << endl;
 
     string str;
@@ -44,7 +44,7 @@ bool arrayOfIntegersParser(Iterator first, Iterator last) {
     bool result = phrase_parse(
         first,                          //  Start Iterator
         last,                           //  End Iterator
-        char_('[') >> int_ >> *(',' >> int_) >> char_(']'),   //  The Parser
+        char_('[') >> int_ >> *(',' >> int_) >> char_(']'),   //  The Parser [x, y, z]
         space                           //  The Skip-Parser
     );
     if (first != last) // fail if we did not get a full match
