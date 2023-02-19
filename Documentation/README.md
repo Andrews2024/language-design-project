@@ -1,5 +1,5 @@
 # Summary
-//Motivations of the project
+This project is intended to create a programming level targeted towards new programmers. The motivation of this project is to provide an alternative to the language Racket, which is used in WPI's introductory computer science classes for computer science majors. 
 # Syntax
 This languages is intended to use synstax that is very similar to modern mainstream languages such as C++ and Python. This is intended to simplify the transtition of this introductory language to more established languages for new programmers. 
 
