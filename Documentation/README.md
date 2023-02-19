@@ -1,5 +1,11 @@
 # Summary
+//Motivations of the project
 # Syntax
+This languages is intended to use synstax that is very similar to modern mainstream languages such as C++ and Python. This is intended to simplify the transtition of this introductory language to more established languages for new programmers. 
+
+A key difference of this language from C-style syntaxes is that lines of code are not separated by semicolons (;). This is to reduce the kind of syntax errors programmers may come across while writing code. This also helps the language follow the procedural paradigm by reducing the steps needed to create runnable code.
+
+See the `syntax_guide_part_1.md` file for more documentation about syntax style and design decisions.
 # Spirit
 For this project, we use Boost's Spirit X3 library to create a parser. This parser is a recursive-descent parser that uses syntax similar to EBNF. We chose this library because of its comprehensive documentation and integration with C++. Spirit X3 also presents a reduced learning curve versus tools like Bison and ANTLR. More information about Spirit X3 is available [here](https://www.boost.org/doc/libs/1_76_0/libs/spirit/doc/x3/html/spirit_x3/introduction.html).
 
