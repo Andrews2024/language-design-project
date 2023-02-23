@@ -21,14 +21,18 @@ bool varParse(Iterator, Iterator);
 //Only allows keyword 'dec' first
 auto const keyword = x3::lit("dec");
 auto const keyword_with_space = x3::lit("dec ");
+auto const keyword2 = x3::lit("decimal");
+auto const keyword2_with_space = x3::lit("decimal ");
 
 //Any identifier allowed with the first character alphabetical; use lexeme to separate var defs with spaces
 auto const name = lexeme[(alpha >> *alnum)] - keyword;
+auto const name2 = lexeme[(alpha >> *alnum)] - keyword2;
 auto const var = keyword_with_space >> name;
-auto const tail = x3::lit("= ") >> double_;
+auto const var2 = keyword2_with_space >> name2;
+auto const tail = x3::lit("=") >> double_;
 
 //Any combinations of variables to parse
-auto const input_vars = +(var >> -tail);
+auto const input_vars = +((var | var2) >> -tail);
 
 int main(void) {
     cout << "Enter variables" << endl;
