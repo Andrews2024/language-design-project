@@ -5,3 +5,4 @@ This project is intended to create a programming level targeted towards new prog
 2) List out necessary parsers (to be put together)
 3) Create those parsers and put them together
 4) Start testing the parser on example code files
+5) Organize and comment code (make a system for this too)
