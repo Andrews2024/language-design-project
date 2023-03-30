@@ -16,8 +16,13 @@ bool arrayOfDoublesParser(Iterator, Iterator);
 template <typename Iterator>
 bool arrayOfBoolsParser(Iterator, Iterator);
 
+template <typename Iterator>
+bool arrayOfDoublesParser(Iterator, Iterator);
+
+template <typename Iterator>
+bool arrayOfBoolsParser(Iterator, Iterator);
+
 int main(void) {
-    // cout << "Enter and array of strings such as ['a','b','c']"<< endl;//integers, such as [1, 2, 3]" << endl;
     cout << "Enter an array of booleans, such as [true, false]" << endl;
     cout << "Type q or Q to quit" << endl;
 
