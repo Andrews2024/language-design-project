@@ -6,9 +6,6 @@ using std::endl;
 using std::string;
 
 template <typename Iterator>
-bool arrayOfIntegersParser(Iterator, Iterator);
-
-template <typename Iterator>
 bool arrayOfDoublesParser(Iterator, Iterator);
 
 template <typename Iterator>
@@ -38,28 +35,6 @@ int main(void) {
     std::cout << "Bye... :)\n";
 
     return 0;
-}
-
-template <typename Iterator>
-bool arrayOfIntegersParser(Iterator first, Iterator last) {
-    using boost::spirit::x3::int_;
-    using boost::spirit::x3::char_;
-    using boost::spirit::x3::phrase_parse;
-    using boost::spirit::x3::ascii::space;
-
-    bool result = phrase_parse(
-        first,                          //  Start Iterator
-        last,                           //  End Iterator
-        (
-                '[' >> int_
-                >> *(',' >> int_) >> ']'
-            |   "[]"
-        ),
-        space                           //  The Skip-Parser
-    );
-    if (first != last) // fail if we did not get a full match
-        return false;
-    return result;
 }
 
 template <typename Iterator>
