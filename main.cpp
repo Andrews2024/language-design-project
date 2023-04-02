@@ -37,24 +37,6 @@ int main(void) {
 }
 
 // template <typename Iterator>
-// bool arrayOfIntegersParser(Iterator first, Iterator last) {
-//     using boost::spirit::x3::int_;
-//     using boost::spirit::x3::char_;
-//     using boost::spirit::x3::phrase_parse;
-//     using boost::spirit::x3::ascii::space;
-
-//     bool result = phrase_parse(
-//         first,                          //  Start Iterator
-//         last,                           //  End Iterator
-//         char_('[') >> int_ >> *(',' >> int_) >> char_(']'),   //  The Parser
-//         space                           //  The Skip-Parser
-//     );
-//     if (first != last) // fail if we did not get a full match
-//         return false;
-//     return result;
-// }
-
-// template <typename Iterator>
 // bool arrayOfCharsParser(Iterator first, Iterator last) {
 //     using boost::spirit::x3::int_;
 //     using boost::spirit::x3::char_;
