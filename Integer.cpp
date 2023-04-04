@@ -25,9 +25,11 @@ bool Integer::arrayOfIntegersParser(Iterator first, Iterator last) {
 }
 
 void Integer::printResult(int arr[], int i){
-	for(size_t k = 0; k <  (size_t) i; k++){
-            	printf("%d\n", arr[k]);
-            }
+	for(size_t k = 0; k <  (size_t) i; k++) {
+        printf("%d\n", arr[k]);
+    }
+
+    cout << endl;
 }
 
 void Integer::storeArray(string str) {

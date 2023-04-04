@@ -8,8 +8,6 @@ using std::string;
 template <typename Iterator>
 bool arrayOfDoublesParser(Iterator, Iterator);
 
-template <typename Iterator>
-bool arrayOfBoolsParser(Iterator, Iterator);
 
 int main(void) {
     cout << "Enter an array of booleans, such as [true, false]" << endl;
@@ -54,29 +52,7 @@ int main(void) {
 //     return result;
 // }
 
-template <typename Iterator>
-bool arrayOfBoolsParser(Iterator first, Iterator last) {
-    using boost::spirit::x3::string;
-    using boost::spirit::x3::char_;
-    using boost::spirit::x3::phrase_parse;
-    using boost::spirit::x3::ascii::space;
 
-    bool result = phrase_parse(
-        first,                          //  Start Iterator
-        last,
-        //  Begin grammar -> parenthesis because there are options for valid parses
-        (
-                '[' >> (string("true") | string("false"))
-                >> *(',' >> (string("true") | string("false"))) >> ']'
-            |   "[]"  //empty set is valid
-        ), 
-        //End grammar
-        space                           //  The Skip-Parser
-    );
-    if (first != last) // fail if we did not get a full match
-        return false;
-    return result;
-}
 
 template <typename Iterator>
 bool arrayOfDoublesParser(Iterator first, Iterator last) {
