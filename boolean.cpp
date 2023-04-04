@@ -73,3 +73,34 @@ void Boolean::storeArray(string str) {
         }
     }
 }
+
+template <typename Iterator>
+bool Boolean::varParse(Iterator first, Iterator last) {
+    //Only allows keyword 'bool' first
+    auto const keyword_bool = x3::lit("bool");
+    auto const keyword_bool_with_space = x3::lit("bool ");
+    auto const keyword_boolean = x3::lit("boolean");
+    auto const keyword_boolean_with_space = x3::lit("boolean ");
+
+    //Any identifier allowed with the first character alphabetical; use lexeme to separate var defs with spaces
+    auto const name = lexeme[(alpha >> *alnum)] - keyword_bool;
+    auto const name2 = lexeme[(alpha >> *alnum)] - keyword_boolean;
+    auto const var = keyword_bool_with_space >> name;
+    auto const var2 = keyword_boolean_with_space >> name2;
+    auto const tail = x3::lit("=") >> (string("true") | string("false"));
+
+    //Any combinations of variables to parse
+    auto const input_vars = +((var | var2) >> -tail);
+
+    // The actual parsing and separation
+    bool result = phrase_parse(
+        first,                          //  Start Iterator
+        last,                           //  End Iterator
+        input_vars,                     //  The Parser
+        x3::ascii::space                //  The Skip-Parser
+    );
+    if (first != last) // fail if we did not get a full match
+        return false;
+    
+    return result;
+}
