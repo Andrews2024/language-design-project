@@ -6,8 +6,22 @@ using std::endl;
 using std::string;
 
 template <typename Iterator>
-bool arrayOfDoublesParser(Iterator, Iterator);
+bool arrayOfCharsParser(Iterator first, Iterator last) {
+    using boost::spirit::x3::int_;
+    using boost::spirit::x3::char_;
+    using boost::spirit::x3::phrase_parse;
+    using boost::spirit::x3::ascii::space;
 
+    bool result = phrase_parse(
+        first,                          //  Start Iterator
+        last,                           //  End Iterator
+        char_('[') >> (char_) >> *(',' >> char_) >> char_(']'),   //  The Parser
+        space                           //  The Skip-Parser
+    );
+    if (first != last) // fail if we did not get a full match
+        return false;
+    return result;
+}
 
 int main(void) {
     cout << "Enter an array of booleans, such as [true, false]" << endl;
@@ -20,7 +34,7 @@ int main(void) {
         if (str.empty() || str[0] == 'q' || str[0] == 'Q')
             break;
 
-        if (arrayOfDoublesParser(str.begin(), str.end()))
+        if (arrayOfCharsParser(str.begin(), str.end()))
         {
             cout << "Parsing succeeded\n";
         }
@@ -32,62 +46,4 @@ int main(void) {
 
     std::cout << "Bye... :)\n";
     return 0;
-}
-
-// template <typename Iterator>
-// bool arrayOfCharsParser(Iterator first, Iterator last) {
-//     using boost::spirit::x3::int_;
-//     using boost::spirit::x3::char_;
-//     using boost::spirit::x3::phrase_parse;
-//     using boost::spirit::x3::ascii::space;
-
-//     bool result = phrase_parse(
-//         first,                          //  Start Iterator
-//         last,                           //  End Iterator
-//         char_('[') >> (char_) >> *(',' >> char_) >> char_(']'),   //  The Parser
-//         space                           //  The Skip-Parser
-//     );
-//     if (first != last) // fail if we did not get a full match
-//         return false;
-//     return result;
-// }
-
-
-
-template <typename Iterator>
-bool arrayOfDoublesParser(Iterator first, Iterator last) {
-    using boost::spirit::x3::double_;
-    using boost::spirit::x3::char_;
-    using boost::spirit::x3::phrase_parse;
-    using boost::spirit::x3::ascii::space;
-
-    bool result = phrase_parse(
-        first,                          //  Start Iterator
-        last,                           //  End Iterator
-        char_('[') >> double_ >> *(',' >> double_) >> char_(']'),   //  The Parser
-        space                           //  The Skip-Parser
-    );
-    if (first != last) // fail if we did not get a full match
-        return false;
-    return result;
-}
-
-template <typename Iterator>
-bool arrayOfStringsParser(Iterator first, Iterator last) {
-    using boost::spirit::x3::int_;
-    using boost::spirit::x3::char_;
-    using boost::spirit::x3::phrase_parse;
-    using boost::spirit::x3::ascii::space;
-
-    //auto const quoted_string = boost::spirit::x3::lexeme['"' >> +(char_ - '"') >> '"'];
-
-    bool result = phrase_parse(
-        first,                          //  Start Iterator
-        last,                           //  End Iterator
-        char_('[') >> char_('\'') >> *(char_ - char('\'')) >> char_('\'') >> *(',' >> char_('\'') >> *(char_ - char('\'')) >> char_('\''))>> char_(']'),   //  The Parser
-        space                           //  The Skip-Parser
-    );
-    if (first != last) // fail if we did not get a full match
-        return false;
-    return result;
 }
