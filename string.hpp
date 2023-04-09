@@ -17,7 +17,7 @@ using std::endl;
 class String {
     public:
         template <typename Iterator>
-        bool varParse(Iterator, Iterator);
+        bool varParse(Iterator first, Iterator last);
         
         template <typename Iterator>
         bool arrayOfStringsParser(Iterator first, Iterator last);
