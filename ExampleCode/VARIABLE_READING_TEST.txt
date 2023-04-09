@@ -1,0 +1,8 @@
+integer a = 9
+int b = 10
+decimal c = 11.0
+dec d = 12
+string e = "Hello, world!"
+str f = "Fizzbuzz!"
+boolean g = true
+bool h = false

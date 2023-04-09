@@ -32,11 +32,10 @@ bool String::varParse(Iterator first, Iterator last) {
 }
 
 template <typename Iterator>
-bool arrayOfStringsParser(Iterator first, Iterator last) {
-    using boost::spirit::x3::int_;
-    using boost::spirit::x3::char_;
-    using boost::spirit::x3::phrase_parse;
-    using boost::spirit::x3::ascii::space;
+bool String::arrayOfStringsParser(Iterator first, Iterator last) {
+    using x3::char_;
+    using x3::phrase_parse;
+    using x3::ascii::space;
 
     //auto const quoted_string = boost::spirit::x3::lexeme['"' >> +(char_ - '"') >> '"'];
 
