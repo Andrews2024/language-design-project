@@ -1,7 +1,7 @@
-#include "string.hpp"
+#include "string_var.hpp"
 
 template <typename Iterator>
-bool String::varParse(Iterator first, Iterator last) {
+bool StringVar::varParse(Iterator first, Iterator last) {
     //Only allows keyword 'str' first
     auto const keyword_str = x3::lit("str");
     auto const keyword_str_with_space = x3::lit("str ");
@@ -32,7 +32,7 @@ bool String::varParse(Iterator first, Iterator last) {
 }
 
 template <typename Iterator>
-bool String::arrayOfStringsParser(Iterator first, Iterator last) {
+bool StringVar::arrayOfStringsParser(Iterator first, Iterator last) {
     using x3::char_;
     using x3::phrase_parse;
     using x3::ascii::space;

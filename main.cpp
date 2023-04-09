@@ -5,7 +5,7 @@
 #include "boolean.hpp"
 #include "integer.hpp"
 #include "decimal.hpp"
-#include "string.hpp"
+#include "string_var.hpp"
 
 using std::cout;
 using std::endl;
@@ -13,6 +13,7 @@ using std::ifstream;
 
 int main(void) {
     Decimal decClass;
+    StringVar strClass;
 
     cout << "Reading file..." << endl;
 
@@ -21,6 +22,9 @@ int main(void) {
 
     while(getline(file, str)) {
         if(decClass.varParse(str.begin(), str.end())) {
+            cout << str << endl;
+        }
+        else if(strClass.varParse(str.begin(), str.end())) {
             cout << str << endl;
         }
     }

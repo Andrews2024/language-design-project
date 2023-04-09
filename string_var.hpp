@@ -14,7 +14,7 @@ using x3::lexeme;
 using std::cout;
 using std::endl;
 
-class String {
+class StringVar {
     public:
         template <typename Iterator>
         bool varParse(Iterator first, Iterator last);
