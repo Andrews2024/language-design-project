@@ -7,6 +7,7 @@
 #include "decimal.hpp"
 #include "string_var.hpp"
 
+
 using std::cout;
 using std::endl;
 using std::ifstream;
