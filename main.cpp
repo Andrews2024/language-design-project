@@ -26,7 +26,7 @@ int main(void) {
         if(decClass.varParse(str.begin(), str.end())) { continue; }
         else if(strClass.varParse(str.begin(), str.end())) { continue; }
         else if(boolClass.varParse(str.begin(), str.end())) { continue; }
-        else if(intClass.varParse(str.begin(), str.end())) { cout << str << endl; }
+        else if(intClass.varParse(str.begin(), str.end())) { continue; }
         else {
             cout << "SyntaxError: " << str << endl;
             return 1;
