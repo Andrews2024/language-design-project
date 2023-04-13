@@ -7,7 +7,6 @@
 #include "decimal.hpp"
 #include "string_var.hpp"
 
-
 using std::cout;
 using std::endl;
 using std::ifstream;
@@ -15,6 +14,8 @@ using std::ifstream;
 int main(void) {
     Decimal decClass;
     StringVar strClass;
+    Boolean boolClass;
+    Integer intClass;
 
     cout << "Reading file..." << endl;
 
@@ -22,11 +23,13 @@ int main(void) {
     ifstream file("ExampleCode/VARIABLE_READING_TEST.txt");
 
     while(getline(file, str)) {
-        if(decClass.varParse(str.begin(), str.end())) {
-            cout << str << endl;
-        }
-        else if(strClass.varParse(str.begin(), str.end())) {
-            cout << str << endl;
+        if(decClass.varParse(str.begin(), str.end())) { continue; }
+        else if(strClass.varParse(str.begin(), str.end())) { continue; }
+        else if(boolClass.varParse(str.begin(), str.end())) { continue; }
+        else if(intClass.varParse(str.begin(), str.end())) { cout << str << endl; }
+        else {
+            cout << "SyntaxError: " << str << endl;
+            return 1;
         }
     }
     
