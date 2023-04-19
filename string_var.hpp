@@ -25,13 +25,13 @@ class StringVar {
             auto const keyword_str_with_space = x3::lit("str ");
             auto const keyword_string = x3::lit("string");
             auto const keyword_string_with_space = x3::lit("string ");
-
+            
             //Any identifier allowed with the first character alphabetical; use lexeme to separate var defs with spaces
             auto const name = lexeme[(alpha >> *alnum)] - keyword_str;
             auto const name2 = lexeme[(alpha >> *alnum)] - keyword_string;
             auto const var = keyword_str_with_space >> name;
             auto const var2 = keyword_string_with_space >> name2;
-            auto const tail = x3::lit("=") >> x3::string("\"") >> (*alnum, *punct) >> x3::string("\""); // any number of spaces before string
+            auto const tail = x3::lit("=") >> string("\"") >> *alnum >> string("\"");
 
             //Any combinations of variables to parse
             auto const input_vars = +((var | var2) >> -tail);
