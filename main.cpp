@@ -32,7 +32,7 @@ int file_syntax_valid(void) {
             return 1;
         }
     }
-    
+    cout << "File read successfully!" << endl;
     return 0;
 }
 
@@ -62,7 +62,7 @@ int terminal_debug(void) {
 }
 
 int main(void) {
-    bool file_read = false;
+    bool file_read = true;
     
     if (file_read) {
         file_syntax_valid();

@@ -20,4 +20,4 @@ To see what built-in parsers come with Spirit X3, look at the various [quick ref
 * In variable parsing, type names cannot appear in variable names
     - For example, `decimal dec1` is parsed as invalid syntax
 * Repeat variable names are allowed
-* Strings are not parsed correctly by varParse()
+* Strings with punctuation are not parsed correctly by varParse()
