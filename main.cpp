@@ -11,12 +11,12 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 
-int main(void) {
-    Decimal decClass;
-    StringVar strClass;
-    Boolean boolClass;
-    Integer intClass;
+Decimal decClass;
+StringVar strClass;
+Boolean boolClass;
+Integer intClass;
 
+int file_syntax_valid(void) {
     cout << "Reading file..." << endl;
 
     std::string str;
@@ -33,5 +33,42 @@ int main(void) {
         }
     }
     
+    return 0;
+}
+
+int terminal_debug(void) {
+    std::string str;
+    cout << "Input string variables" << endl;
+    cout << "Enter q or Q to quit" << endl;
+
+    while (getline(std::cin, str))
+    {
+        if (str.empty() || str[0] == 'q' || str[0] == 'Q')
+            break;
+
+        if (strClass.varParse(str.begin(), str.end()))
+        {
+            cout << "Parsing succeeded\n";
+        }
+        else
+        {
+            cout << "Parsing failed\n";
+        }
+    }
+
+    std::cout << "Bye... :)\n";
+
+    return 0;
+}
+
+int main(void) {
+    bool file_read = false;
+    
+    if (file_read) {
+        file_syntax_valid();
+    }
+    else {
+        terminal_debug();
+    }
     return 0;
 }
