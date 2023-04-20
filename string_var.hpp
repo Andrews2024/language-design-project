@@ -11,6 +11,9 @@ using x3::alnum;
 using x3::alpha;
 using x3::punct;
 using x3::lexeme;
+using x3::char_;
+using x3::phrase_parse;
+using x3::ascii::space;
 
 using std::cout;
 using std::endl;
@@ -51,10 +54,6 @@ class StringVar {
         
         template <typename Iterator>
         bool arrayOfStringsParser(Iterator first, Iterator last) {
-            using x3::char_;
-            using x3::phrase_parse;
-            using x3::ascii::space;
-
             //auto const quoted_string = boost::spirit::x3::lexeme['"' >> +(char_ - '"') >> '"'];
 
             bool result = phrase_parse(
