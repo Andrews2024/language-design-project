@@ -20,8 +20,3 @@ To see what built-in parsers come with Spirit X3, look at the various [quick ref
 * In variable parsing, type names cannot appear in variable names
     - For example, `decimal dec1` is parsed as invalid syntax
 * Repeat variable names are allowed
-* Strings with punctuation are not parsed correctly by varParse()
-    * Tried using `lexeme[*alnum] >> *punct` and `lexeme[*alnum >> *punct]` but this causes all strings to fail
-    * Using `lexeme[*alnum] >> punct` causes only strings ending with a punctuation character to pass (e.g. "hello.")
-    * Using `char_` works with strings that are one character long
-    * Using `*char_ and lexeme[*char_]` causes all strings to fail
