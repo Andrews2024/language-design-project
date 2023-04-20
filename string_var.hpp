@@ -31,7 +31,7 @@ class StringVar {
             auto const name2 = lexeme[(alpha >> *alnum)] - keyword_string;
             auto const var = keyword_str_with_space >> name;
             auto const var2 = keyword_string_with_space >> name2;
-            auto const tail = x3::lit("=") >> string("\"") >> *alnum >> string("\"");
+            auto const tail = x3::lit("=") >> string("\"") >> lexeme[*alnum] >> string("\"");
 
             //Any combinations of variables to parse
             auto const input_vars = +((var | var2) >> -tail);

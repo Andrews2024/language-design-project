@@ -5,4 +5,4 @@ dec d = 12
 boolean g = true
 bool h = false
 string e = "hello"
-str f = "world99"
+str f = "world!"

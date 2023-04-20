@@ -62,7 +62,7 @@ int terminal_debug(void) {
 }
 
 int main(void) {
-    bool file_read = true;
+    bool file_read = false;
     
     if (file_read) {
         file_syntax_valid();
