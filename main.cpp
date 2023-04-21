@@ -23,7 +23,8 @@ int file_syntax_valid(void) {
     ifstream file("ExampleCode/VARIABLE_READING_TEST.txt");
 
     while(getline(file, str)) {
-        if(decClass.varParse(str.begin(), str.end())) { continue; }
+        if (strClass.commentParse(str.begin(), str.end())) { continue; }
+        else if(decClass.varParse(str.begin(), str.end())) { continue; }
         else if(strClass.varParse(str.begin(), str.end())) { continue; }
         else if(boolClass.varParse(str.begin(), str.end())) { continue; }
         else if(intClass.varParse(str.begin(), str.end())) { continue; }
@@ -62,7 +63,7 @@ int terminal_debug(void) {
 }
 
 int main(void) {
-    bool file_read = false;
+    bool file_read = true;
     
     if (file_read) {
         file_syntax_valid();

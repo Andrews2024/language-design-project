@@ -1,3 +1,4 @@
+// A bunch of variable declarations
 integer a = 9
 int b = 10
 decimal c = 11.0

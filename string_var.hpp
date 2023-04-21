@@ -45,7 +45,7 @@ class StringVar {
                 first,                          //  Start Iterator
                 last,                           //  End Iterator
                 input_vars,                     //  The Parser
-                x3::ascii::space                //  The Skip-Parser
+                space                //  The Skip-Parser
             );
             if (first != last) // fail if we did not get a full match
                 return false;
@@ -60,6 +60,20 @@ class StringVar {
                 first,                          //  Start Iterator
                 last,                           //  End Iterator
                 char_('[') >> char_('\'') >> *(char_ - char('\'')) >> char_('\'') >> *(',' >> char_('\'') >> *(char_ - char('\'')) >> char_('\''))>> char_(']'),   //  The Parser
+                space                           //  The Skip-Parser
+            );
+            if (first != last) // fail if we did not get a full match
+                return false;
+            return result;
+        }
+
+        template <typename Iterator>
+        bool commentParse(Iterator first, Iterator last) {
+        
+            bool result = phrase_parse(
+                first,                          //  Start Iterator
+                last,                           //  End Iterator
+                x3::string("//") >> *char_,                        //  The Parser
                 space                           //  The Skip-Parser
             );
             if (first != last) // fail if we did not get a full match
