@@ -3,6 +3,7 @@
 Loops and conditional statements use mostly the same syntax as Java/ C/ C++ to ease the transition from this language to more mainline languages. In the case of conditional statements, we have also taken inspiration from Python for comparision operators, as the use of 'and' and 'or' may be more intuitive to newer programmers.
 
 ## Conditional statements
+
 To execute portions of a program under specific conditions, use `if`, 'else if`, and `else` statements. Syntax for these statements is almost identical to Java and C-style languages Below is an example of each.
 ```
 integer a = 4
@@ -22,6 +23,7 @@ else { // If neither of the above conditions are true, then
 Condtional statements are built using boolean variables, boolean comparison operators, and set operations: `<, >, <=, >=, ==, !=, AND, OR, NOT, &&, ||, and !`. AND is equivalent to &&, OR is equivalent to ||, and NOT is equivalent to !. The use of AND, OR, and NOT is similar to Python and may be more intuitive to some users. To use a boolean variable as a condition, put the name of the variable int the parentheses: `if (myBool) {}`.
 
 ## For Loops (Numerical)
+
 For loops are written in the same way as Java/ C/ C++. Below is the syntax for incrementing using numbers.
 ```
 for(integer counter = 0; counter < maximum; counter++) {
@@ -34,6 +36,7 @@ The last part of the loop, `counter++`, increments the variable counter by one a
 After the for loop condition is an open bracket (`{`), followed by code to do something, and ended with a closed bracket (`}`). Anything outside these brackets is not part of the for loop.
 
 ## For Loops (Items)
+
 It is possible to iterate through arrays by element in addition to using numerical looping. This is similar to 'for each' loops in Java and Python, as seen by the syntax.
 ```
 for (thing in list) {
@@ -51,6 +54,7 @@ for (num in integerList) {
 // integerList = [2, 4, 6]
 ```
 ## While Loops
+
 While loops are loops that occur while a certain condition is true. Below is an example of a while loop.
 ```
 integer counter = 0
