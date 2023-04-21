@@ -2,6 +2,25 @@
 
 Loops and conditional statements use mostly the same syntax as Java/ C/ C++ to ease the transition from this language to more mainline languages. In the case of conditional statements, we have also taken inspiration from Python for comparision operators, as the use of 'and' and 'or' may be more intuitive to newer programmers.
 
+## Conditional statements
+To execute portions of a program under specific conditions, use `if`, 'else if`, and `else` statements. Syntax for these statements is almost identical to Java and C-style languages Below is an example of each.
+```
+integer a = 4
+integer b = 5
+integer c = 6
+
+if (a > 0) { // a greater than 0
+    a = a * -1
+}
+else if (c < b) { // c less than b
+    c = b - 1
+}
+else { // If neither of the above conditions are true, then
+    a = b
+}
+```
+Condtional statements are built using boolean variables, boolean comparison operators, and set operations: `<, >, <=, >=, ==, !=, AND, OR, NOT, &&, ||, and !`. AND is equivalent to &&, OR is equivalent to ||, and NOT is equivalent to !. The use of AND, OR, and NOT is similar to Python and may be more intuitive to some users. To use a boolean variable as a condition, put the name of the variable int the parentheses: `if (myBool) {}`.
+
 ## For Loops (Numerical)
 For loops are written in the same way as Java/ C/ C++. Below is the syntax for incrementing using numbers.
 ```
