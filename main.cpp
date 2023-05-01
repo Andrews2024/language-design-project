@@ -5,7 +5,7 @@
 #include "boolean.hpp"
 #include "integer.hpp"
 #include "decimal.hpp"
-#include "string_var.hpp"
+#include "string_var.cpp"
 
 using std::cout;
 using std::endl;
@@ -23,7 +23,7 @@ int file_syntax_valid(void) {
     ifstream file("ExampleCode/VARIABLE_READING_TEST.txt");
 
     while(getline(file, str)) {
-        if (strClass.commentParse(str.begin(), str.end())) { continue; }
+        if (strClass.singleCommentParse(str.begin(), str.end())) { continue; }
         else if(decClass.varParse(str.begin(), str.end())) { continue; }
         else if(strClass.varParse(str.begin(), str.end())) { continue; }
         else if(boolClass.varParse(str.begin(), str.end())) { continue; }
@@ -32,6 +32,11 @@ int file_syntax_valid(void) {
             cout << "SyntaxError: " << str << endl;
             return 1;
         }
+        /*
+        TODO: Multi-line comment parsing
+        * If line is beginning of mutli-line comment, flip on a boolean that we are waiting fo the end of the comment
+        * If comment starts and ends on same line, continue
+        */
     }
     cout << "File read successfully!" << endl;
     return 0;
@@ -42,19 +47,11 @@ int terminal_debug(void) {
     cout << "Input string variables" << endl;
     cout << "Enter q or Q to quit" << endl;
 
-    while (getline(std::cin, str))
-    {
+    while (getline(cin, str)) { // While there are characters in buffer to parse
         if (str.empty() || str[0] == 'q' || str[0] == 'Q')
             break;
-
-        if (strClass.varParse(str.begin(), str.end()))
-        {
-            cout << "Parsing succeeded\n";
-        }
-        else
-        {
-            cout << "Parsing failed\n";
-        }
+        
+        strClass.storeArray(str);
     }
 
     std::cout << "Bye... :)\n";
@@ -63,7 +60,7 @@ int terminal_debug(void) {
 }
 
 int main(void) {
-    bool file_read = true;
+    bool file_read = false;
     
     if (file_read) {
         file_syntax_valid();

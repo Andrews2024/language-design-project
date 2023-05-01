@@ -16,6 +16,7 @@ using x3::phrase_parse;
 using x3::ascii::space;
 
 using std::cout;
+using std::cin;
 using std::endl;
 
 class StringVar {
@@ -59,7 +60,8 @@ class StringVar {
             bool result = phrase_parse(
                 first,                          //  Start Iterator
                 last,                           //  End Iterator
-                char_('[') >> char_('\'') >> *(char_ - char('\'')) >> char_('\'') >> *(',' >> char_('\'') >> *(char_ - char('\'')) >> char_('\''))>> char_(']'),   //  The Parser
+                char_('[') >> char_('"') >> *(char_ - '"') >> char_('"') >>  // First string
+                *(',' >> char_('"') >> *(char_ - '"') >> char_('"')) >> char_(']'),   //  The Parser
                 space                           //  The Skip-Parser
             );
             if (first != last) // fail if we did not get a full match
@@ -68,7 +70,7 @@ class StringVar {
         }
 
         template <typename Iterator>
-        bool commentParse(Iterator first, Iterator last) {
+        bool singleCommentParse(Iterator first, Iterator last) {
         
             bool result = phrase_parse(
                 first,                          //  Start Iterator
@@ -80,6 +82,9 @@ class StringVar {
                 return false;
             return result;
         }
+
+        void storeArray(std::string str);
+        void printResult(std::string array[], int i);
 };
 
 #endif
