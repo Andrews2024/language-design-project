@@ -1,4 +1,4 @@
-# Syntax Guide for [LANGUAGE_NAME] >> Part 3 >> Comments and Functions
+# Syntax Guide for Gompei >> Part 3 >> Comments and Functions
 
 ## Comments
 While writing code, it is recommended to include comments that explain the purpose of functions, how an operation works, and other important information about the overall program. This enables developers unfamiliar with the program to understand it more easily. Gompei uses Java/ C/ C++ syntax for comments and supports single- and multi-line comments. Below is an example.
