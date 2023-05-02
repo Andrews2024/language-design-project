@@ -1,2 +1,2 @@
-main: main.cpp decimal.cpp
-	g++ -Wall main.cpp decimal.cpp -o main.out
+main: main.cpp decimal.cpp string_var.cpp storage.cpp
+	g++ -Wall main.cpp decimal.cpp string_var.cpp storage.cpp -o main.out

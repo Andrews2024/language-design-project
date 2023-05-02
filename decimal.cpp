@@ -83,5 +83,3 @@ void Decimal::storeVar(string str) {
             cout << "Parsing failed\n";
         }
 }
-
-int main(){return 0;}

@@ -5,7 +5,7 @@
 #include "boolean.hpp"
 #include "integer.hpp"
 #include "decimal.hpp"
-#include "string_var.cpp"
+#include "string_var.hpp"
 
 using std::cout;
 using std::endl;
@@ -60,7 +60,7 @@ int terminal_debug(void) {
 }
 
 int main(void) {
-    bool file_read = false;
+    bool file_read = true;
     
     if (file_read) {
         file_syntax_valid();
