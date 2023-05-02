@@ -5,7 +5,7 @@ This languages is intended to use syntax that is very similar to modern mainstre
 
 A key difference of this language from C-style syntaxes is that lines of code are not separated by semicolons (;). This is to reduce the kind of syntax errors programmers may come across while writing code. This also helps the language follow the procedural paradigm by reducing the steps needed to create runnable code.
 
-See the `syntax_guide_part_1.md` file for more documentation about syntax style and design decisions.
+See the `syntax_guide_part_X.md` files for more documentation about syntax style and design decisions.
 # Spirit
 For this project, we use Boost's Spirit X3 library to create a parser. This parser is a recursive-descent parser that uses syntax similar to EBNF. We chose this library because of its comprehensive documentation and integration with C++. Spirit X3 also presents a reduced learning curve versus tools like Bison and ANTLR. More information about Spirit X3 is available [here](https://www.boost.org/doc/libs/1_76_0/libs/spirit/doc/x3/html/spirit_x3/introduction.html).
 
@@ -18,7 +18,7 @@ To see what built-in parsers come with Spirit X3, look at the various [quick ref
 
 ## Known Bugs
 * In variable parsing, type names cannot appear in variable names
-    - For example, `decimal dec1` is parsed as invalid syntax
+    * For example, `decimal dec1` is parsed as invalid syntax
 * Repeat variable names are allowed
 * Single-line comments must be on their own line in the current syntax checker
     * In-line comments will cause other partsers to fail

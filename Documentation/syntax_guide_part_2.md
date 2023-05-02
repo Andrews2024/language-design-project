@@ -1,4 +1,4 @@
-# Syntax Guide for [LANGUAGE_NAME] >> Part 2 >> Conditionals and Loops
+# Syntax Guide for Gompei >> Part 2 >> Conditionals and Loops
 
 Loops and conditional statements use mostly the same syntax as Java/ C/ C++ to ease the transition from this language to more mainline languages. In the case of conditional statements, we have also taken inspiration from Python for comparision operators, as the use of 'and' and 'or' may be more intuitive to newer programmers.
 
